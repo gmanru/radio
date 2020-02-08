@@ -95,9 +95,9 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.TokenAuthentication',
     ),
 }
-CORS_ORIGIN_WHITELIST = (
-    'localhost:3000',
-)
+CORS_ORIGIN_WHITELIST = [
+    'http://10.0.2.15:3000',
+]
 
 CSRF_COOKIE_NAME = "csrftoken"
 
