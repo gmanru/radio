@@ -130,7 +130,7 @@ class RadioPlayer extends Component {
                             </div>
 
                             {/*The voice spectrum*/}    
-                            {showbufferingimg ? <img style= {{height:"80px",width:"100px"}}  src={spectrumNone} alt="Voice spectrum" /> : <img className="spectrum-img-dimensions" src={playing ? spectrumpic : spectrumNone} alt="Voice spectrum" />}
+                            {showbufferingimg ? <img style= {{height:"80px",width:"100px"}}  src={spectrumNone} alt="Voice spectrum" /> : <img className="spectrum-img-dimensions"style= {{height:"80px",width:"65%"}} src={playing ? spectrumpic : spectrumNone} alt="Voice spectrum" />}
 
                        
                             
