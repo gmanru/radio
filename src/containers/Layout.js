@@ -9,14 +9,14 @@ const { Header, Content, Footer } = Layout;
 class CustomLayout extends React.Component {
     render() {
         return (
-            <Layout className="layout">
+            <Layout className="layout" >
                 <Header>
                 <div className="logo" />
                 <Menu
                     theme="dark"
                     mode="horizontal"
                     defaultSelectedKeys={['2']}
-                    style={{ lineHeight: '64px' }}
+                    style={{ lineHeight: '54px' }}
                 >
     
                 {
@@ -36,6 +36,11 @@ class CustomLayout extends React.Component {
                     <Menu.Item key="1">
                         <Link to="/">Posts</Link>
                     </Menu.Item>
+
+                        
+                    <Menu.Item key="3">
+                        <Link to="/radio">Play radio</Link>
+                    </Menu.Item>
                     
                 </Menu>
                 </Header>
@@ -44,7 +49,7 @@ class CustomLayout extends React.Component {
                     <Breadcrumb.Item><Link to="/">Home</Link></Breadcrumb.Item>
                     <Breadcrumb.Item><Link to="/">List</Link></Breadcrumb.Item>
                 </Breadcrumb>
-                    <div style={{ background: '#fff', padding: 24, minHeight: 280 }}>
+                    <div style={{ background: '#fff', padding: 0, minHeight: 280 }}>
                         {this.props.children}
                     </div>
                 </Content>
