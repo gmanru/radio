@@ -88,7 +88,7 @@ class RadioPlayer extends Component {
 
         return (
                 <Layout  >
-                    <div style={{"text-align": "center"}}>
+                    <div style={{"textAlign": "center"}}>
 
                     <Header  style={{backgroundColor :"#6600ff" ,color: "white"}} >Priozersk FM radio</Header>
                             

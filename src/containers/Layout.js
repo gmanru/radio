@@ -1,5 +1,5 @@
 import React from 'react';
-import { Layout, Menu, Breadcrumb } from 'antd';
+import { Layout, Menu, Breadcrumb,Icon } from 'antd';
 import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import * as actions from '../store/actions/auth';
@@ -29,25 +29,30 @@ class CustomLayout extends React.Component {
                     :
     
                     <Menu.Item key="2">
-                        <Link to="/login">Login</Link>
+                        <Link to="/login"><Icon  style={{ fontSize: '24px', color:"dark" }} type="login" /></Link>
                     </Menu.Item>
                 }
     
                     <Menu.Item key="1">
-                        <Link to="/">Posts</Link>
+                        <Link to="/"><Icon theme="twoTone" style={{ fontSize: '24px', color:"grey" }} type="book" /></Link>
                     </Menu.Item>
-
+                    
                         
                     <Menu.Item key="3">
-                        <Link to="/radio">Play radio</Link>
+                        <Link to="/radio"><Icon theme="twoTone" style={{ fontSize: '24px', color:"grey" }} type="customer-service" /></Link>
+                    </Menu.Item>
+
+                                            
+                    <Menu.Item key="4">
+                        <Link to="/video_str"><Icon theme="twoTone" style={{ fontSize: '24px', color:"grey" }} type="video-camera" /> </Link>
                     </Menu.Item>
                     
                 </Menu>
                 </Header>
                 <Content style={{ padding: '0 50px' }}>
                 <Breadcrumb style={{ margin: '16px 0' }}>
-                    <Breadcrumb.Item><Link to="/">Home</Link></Breadcrumb.Item>
-                    <Breadcrumb.Item><Link to="/">List</Link></Breadcrumb.Item>
+                    <Breadcrumb.Item><Link to="/"><Icon theme="twoTone" style={{ fontSize: '22px' }} type="home" /></Link></Breadcrumb.Item>
+                    
                 </Breadcrumb>
                     <div style={{ background: '#fff', padding: 0, minHeight: 280 }}>
                         {this.props.children}

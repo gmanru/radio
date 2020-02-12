@@ -1,7 +1,7 @@
 import React from 'react';
 import { Form, Icon, Input, Button, Spin } from 'antd';
 import { connect } from 'react-redux';
-import { NavLink } from 'react-router-dom';
+import { NavLink , Link} from 'react-router-dom';
 import * as actions from '../store/actions/auth';
 
 const FormItem = Form.Item;
@@ -61,10 +61,16 @@ class NormalLoginForm extends React.Component {
                         Login
                     </Button>
                     Or 
+                    <Link to='/' 
+                        style={{marginLeft: '20px'}} 
+                       >
+                    <Icon style={{fontSize: '32px',color: 'red'}} type="google-plus" /></Link>
+                    <br></br>
                     <NavLink 
-                        style={{marginRight: '10px'}} 
-                        to='/signup/'> signup
+                        style={{marginLeft: '10px'}} 
+                        to='/signup/'> SignUp
                     </NavLink>
+                    
                     </FormItem>
                 </Form>
             }

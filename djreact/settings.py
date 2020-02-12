@@ -4,7 +4,6 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '-05sgp9!deq=q1nltm@^^2cc+v29i(tyybv3v2t77qi66czazj'
 DEBUG = True
 ALLOWED_HOSTS = ['prio-fm.herokuapp.com', '127.0.0.1']
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -95,9 +94,9 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.TokenAuthentication',
     ),
 }
-CORS_ORIGIN_WHITELIST = [
-    'http://10.0.2.15:3000',
-]
+CORS_ORIGIN_WHITELIST = (
+    'localhost:3000',
+)
 
 CSRF_COOKIE_NAME = "csrftoken"
 
