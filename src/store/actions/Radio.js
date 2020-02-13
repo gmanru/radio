@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import FilePlayer from 'react-player/lib/players/FilePlayer';
 
 
-import { Icon,Layout} from 'antd';
+import { Icon, Layout } from 'antd';
 //import '../pictures_css_radio/radio.css';
 //import styles from  '../pictures_css_radio/radio.css';
 import playbtn from '../pictures_css_radio/play.svg';
@@ -65,85 +65,85 @@ class RadioPlayer extends Component {
         // handle playing, muted and buffering states
         if (playing && !muted) {
             if (buffering) {
-                radiostate = " загружается";
+                radiostate = " Загружается";
                 showbufferingimg = true;
             } else {
-                radiostate = " играет"
+                radiostate = " Воспроизведение"
             }
         } else if (playing && muted) {
             if (buffering) {
-                radiostate = " загружается, звук выкл";
+                radiostate = " Загружается, звук выключен";
                 showbufferingimg = true;
             } else {
-                radiostate = " звук выкл"
+                radiostate = " Звук выключен"
             }
         } else if (!playing && !muted) {
-            radiostate = " пауза"
+            radiostate = " Пауза"
         } else if (!playing && muted) {
-            radiostate = " пауза , звук выкл";
+            radiostate = " Пауза , звук выключен";
         }
 
 
-      
+
 
         return (
-                <Layout  >
-                    <div style={{"textAlign": "center"}}>
+            <Layout  >
+                <div style={{ "textAlign": "center" }}>
 
-                    <Header  style={{backgroundColor :"#6600ff" ,color: "white"}} >Priozersk FM radio</Header>
-                            
-                        
+                    <Header style={{ backgroundColor: "#6600ff", color: "white" }} >Радио Приозерск ФМ </Header>
 
-                        {/* The logo */}
-                        <Content>
-                            
-                                
-                                {/* Check state of 1.Playing, 2.Paused and 3.Buffering 4.Muted*/}
-                                <br></br>
-                                <h4  > Priozersk FM{radiostate}  {showbufferingimg ? <img className="right-floater" src={bufferingpic} alt="buffering" height="30px" width="30px" /> : ''}</h4>
-                        
-                            {/* The Play/Pause ('button') image */}
-                            <Icon style={{ fontSize: '62px', color: "black" }} type="play-circle" src={playing ? pausebtn : playbtn} alt="pause" onClick={this.playPause}/>
-                                <br></br>
-                                <br></br>
-                            
-                            
-                            
 
-                            {/* The audio player */}
-                            <FilePlayer
-                                config={{ file: { forceAudio: true } }}
-                                url={radioUrl}
-                                playing={playing}
-                                volume={volume}
-                                muted={muted}
-                                width='0'
-                                height='0'
-                                onBuffer={this.setBuffer()}
-                                onError={e => console.log('onError', e)}
-                            />
 
-                            {/* the volume and  Mute buttons */}
-                            <div><Icon type="sound" style={{ fontSize: '22px', color: "black" }} src={muted ? mutedbtn : playingbtn} alt="volume button" onClick={this.toggleMuted} />
-                                <input style={{ fontSize: '12px', color: "black" }} type='range' min={0} max={1} step='any' value={volume} onChange={this.setVolume} />
-                                <label >{(volume * 10).toFixed(1)}</label>
-                            </div>
+                    {/* The logo */}
+                    <Content>
 
-                            {/*The voice spectrum*/}    
-                            {showbufferingimg ? <img style= {{height:"80px",width:"100px"}}  src={spectrumNone} alt="Voice spectrum" /> : <img className="spectrum-img-dimensions"style= {{height:"80px",width:"65%"}} src={playing ? spectrumpic : spectrumNone} alt="Voice spectrum" />}
 
-                       
-                            
-                        
-                        </Content>
-                        
+                        {/* Check state of 1.Playing, 2.Paused and 3.Buffering 4.Muted*/}
+                        <br></br>
+                        <h4  > {radiostate}  {showbufferingimg ? <img className="right-floater" src={bufferingpic} alt="buffering" height="30px" width="30px" /> : ''}</h4>
+
+                        {/* The Play/Pause ('button') image */}
+                        <Icon style={{ fontSize: '62px', color: "black" }} type="play-circle" src={playing ? pausebtn : playbtn} alt="pause" onClick={this.playPause} />
+                        <br></br>
+                        <br></br>
+
+
+
+
+                        {/* The audio player */}
+                        <FilePlayer
+                            config={{ file: { forceAudio: true } }}
+                            url={radioUrl}
+                            playing={playing}
+                            volume={volume}
+                            muted={muted}
+                            width='0'
+                            height='0'
+                            onBuffer={this.setBuffer()}
+                            onError={e => console.log('onError', e)}
+                        />
+
+                        {/* the volume and  Mute buttons */}
+                        <div><Icon type="sound" style={{ fontSize: '22px', color: "black" }} src={muted ? mutedbtn : playingbtn} alt="volume button" onClick={this.toggleMuted} />
+                            <input style={{ fontSize: '12px', color: "black" }} type='range' min={0} max={1} step='any' value={volume} onChange={this.setVolume} />
+                            <label >{(volume * 10).toFixed(1)}</label>
                         </div>
-                </Layout>
-                
-            
+
+                        {/*The voice spectrum*/}
+                        {showbufferingimg ? <img style={{ height: "80px", width: "100px" }} src={spectrumNone} alt="Voice spectrum" /> : <img className="spectrum-img-dimensions" style={{ height: "80px", width: "65%" }} src={playing ? spectrumpic : spectrumNone} alt="Voice spectrum" />}
+
+
+
+
+                    </Content>
+
+                </div>
+            </Layout>
+
+
         );
-        }
-    
+    }
+
 }
 
 
