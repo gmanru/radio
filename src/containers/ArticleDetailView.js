@@ -27,11 +27,11 @@ class ArticleDetail extends React.Component {
       Authorization: `Token ${this.props.token}`
     };
     axios.delete(`http://127.0.0.1:8000/api/${articleID}/delete/`)
-    .then(res => {
-      if (res.status === 204) {
-        this.props.history.push(`/`);
-      }
-    })
+      .then(res => {
+        if (res.status === 204) {
+          this.props.history.push(`/`);
+        }
+      })
   };
 
   render() {
@@ -45,11 +45,11 @@ class ArticleDetail extends React.Component {
           token={this.props.token}
           requestType="put"
           articleID={this.props.match.params.articleID}
-          btnText="Update"
+          btnText="Обновить"
         />
         <form onSubmit={this.handleDelete}>
           <Button type="danger" htmlType="submit">
-            Delete
+            Удалить
           </Button>
         </form>
       </div>

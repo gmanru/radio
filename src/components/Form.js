@@ -7,7 +7,7 @@ const FormItem = Form.Item;
 
 
 class CustomForm extends React.Component {
-  
+
   handleFormSubmit = async (event, requestType, articleID) => {
     event.preventDefault();
 
@@ -22,7 +22,7 @@ class CustomForm extends React.Component {
       "Content-Type": "application/json",
       Authorization: `Token ${this.props.token}`,
     };
-    
+
     if (requestType === "post") {
       await axios.post("http://127.0.0.1:8000/api/create/", postObj)
         .then(res => {
@@ -52,11 +52,11 @@ class CustomForm extends React.Component {
             )
           }
         >
-          <FormItem label="Title">
-            <Input name="title" placeholder="Put a title here" />
+          <FormItem label="Название">
+            <Input name="title" placeholder="Напишите название здесь" />
           </FormItem>
-          <FormItem label="Content">
-            <Input name="content" placeholder="Enter some content ..." />
+          <FormItem label="Содержимое статьи">
+            <Input name="content" placeholder="Начните печатать статью здесь" />
           </FormItem>
           <FormItem>
             <Button type="primary" htmlType="submit">

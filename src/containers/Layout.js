@@ -23,7 +23,7 @@ class CustomLayout extends React.Component {
                             this.props.isAuthenticated ?
 
                                 <Menu.Item key="2" onClick={this.props.logout}>
-                                    Logout
+                                    Выход из аккаунта
                     </Menu.Item>
 
                                 :

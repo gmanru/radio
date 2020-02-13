@@ -16,10 +16,10 @@ class RegistrationForm extends React.Component {
     this.props.form.validateFieldsAndScroll((err, values) => {
       if (!err) {
         this.props.onAuth(
-            values.userName,
-            values.email,
-            values.password,
-            values.confirm
+          values.userName,
+          values.email,
+          values.password,
+          values.confirm
         );
         this.props.history.push('/');
       }
@@ -54,21 +54,21 @@ class RegistrationForm extends React.Component {
 
     return (
       <Form onSubmit={this.handleSubmit}>
-        
+
         <FormItem>
-            {getFieldDecorator('userName', {
-                rules: [{ required: true, message: 'Please input your username!' }],
-            })(
-                <Input prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="Username" />
-            )}
+          {getFieldDecorator('userName', {
+            rules: [{ required: true, message: 'Пожалуйста напишите здесь имя пользователя!' }],
+          })(
+            <Input prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="Имя пользователя" />
+          )}
         </FormItem>
-        
+
         <FormItem>
           {getFieldDecorator('email', {
             rules: [{
-              type: 'email', message: 'The input is not valid E-mail!',
+              type: 'email', message: 'Вы написали несуществующий E-mail!',
             }, {
-              required: true, message: 'Please input your E-mail!',
+              required: true, message: 'Пожалуйста укажите ваш настоящий E-mail!',
             }],
           })(
             <Input prefix={<Icon type="mail" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="Email" />
@@ -78,35 +78,35 @@ class RegistrationForm extends React.Component {
         <FormItem>
           {getFieldDecorator('password', {
             rules: [{
-              required: true, message: 'Please input your password!',
+              required: true, message: 'Пожалуйста укажите ваш пароль!',
             }, {
               validator: this.validateToNextPassword,
             }],
           })(
-            <Input prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />} type="password" placeholder="Password" />
+            <Input prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />} type="password" placeholder="Пароль" />
           )}
         </FormItem>
 
         <FormItem>
           {getFieldDecorator('confirm', {
             rules: [{
-              required: true, message: 'Please confirm your password!',
+              required: true, message: 'Пожалуйста подтвердите ваш пароль!',
             }, {
               validator: this.compareToFirstPassword,
             }],
           })(
-            <Input prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />} type="password" placeholder="Password" onBlur={this.handleConfirmBlur} />
+            <Input prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />} type="password" placeholder="Пароль" onBlur={this.handleConfirmBlur} />
           )}
         </FormItem>
 
         <FormItem>
-        <Button type="primary" htmlType="submit" style={{marginRight: '10px'}}>
-            Signup
+          <Button type="primary" htmlType="submit" style={{ marginRight: '10px' }}>
+            Зарегистрироваться
         </Button>
-        Or 
-        <NavLink 
-            style={{marginRight: '10px'}} 
-            to='/login/'> login
+          или
+        <NavLink
+            style={{ marginRight: '10px' }}
+            to='/login/'> Войти
         </NavLink>
         </FormItem>
 
@@ -118,16 +118,16 @@ class RegistrationForm extends React.Component {
 const WrappedRegistrationForm = Form.create()(RegistrationForm);
 
 const mapStateToProps = (state) => {
-    return {
-        loading: state.loading,
-        error: state.error
-    }
+  return {
+    loading: state.loading,
+    error: state.error
+  }
 }
 
 const mapDispatchToProps = dispatch => {
-    return {
-        onAuth: (username, email, password1, password2) => dispatch(actions.authSignup(username, email, password1, password2)) 
-    }
+  return {
+    onAuth: (username, email, password1, password2) => dispatch(actions.authSignup(username, email, password1, password2))
+  }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(WrappedRegistrationForm);
